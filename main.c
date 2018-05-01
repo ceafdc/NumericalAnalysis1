@@ -49,17 +49,10 @@ gauss_seidel(
 
 double
 norm_diff(const matrix *A, const matrix *B) {
-    if (!matrix_same_order(A, B)) {
-        return -1;
-    }
-
-    double max_diff = 0;
-    for (int i = 0; i < A->m; i++) {
-        for (int j = 0; j < A->n; j++) {
-            max_diff = MAX(max_diff, fabs(A->data[i][j] - B->data[i][j]));
-        }
-    }
-    return max_diff;
+    matrix *C = matrix_sub(A, B);
+    double norm = matrix_norm_inf(C);
+    matrix_free(C);
+    return norm;
 }
 
 matrix *
