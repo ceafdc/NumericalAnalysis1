@@ -56,7 +56,7 @@ norm_diff(const matrix *A, const matrix *B) {
 }
 
 matrix *
-create_matrix(n) {
+create_matrix(int n) {
     matrix *A = matrix_create_zeros(n, n);
     for (int i = 0; i < n; i++) {
         A->data[i][i] = 4;
