@@ -111,12 +111,15 @@ test_case_1(int n, double e, int itmax) {
     }
     matrix *Ax = matrix_mult(A, x);
 
+    matrix *ones = matrix_create_ones(n, 1);
+    printf("||x - 1||∞ = %e\n", norm_diff(x, ones));
     printf("||Ax - b||∞ = %e\n", norm_diff(Ax, b));
 
     matrix_free(A);
     matrix_free(x);
     matrix_free(b);
     matrix_free(Ax);
+    matrix_free(ones);
 }
 
 matrix *
