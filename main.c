@@ -171,9 +171,11 @@ int
 main(int argc, char *argv[]) {
     double e = 1e-10;
     int itmax = 100000;
+    puts("1º caso, n=50");
     test_case_1(50, e, itmax);
+    puts("1º caso, n=100");
     test_case_1(100, e, itmax);
-
+    puts("2º caso, n=100");
     test_case_2(100, e, itmax);
 
     return EXIT_SUCCESS;
